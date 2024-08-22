@@ -1,4 +1,4 @@
-package com.example.mockproject;
+package com.example.mockproject.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -8,7 +8,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Employee {
-
+	
+	private Long id;
 	private String name;
 	private String phone;
 	private String email;
@@ -35,6 +36,14 @@ public class Employee {
 	
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 	
 	
