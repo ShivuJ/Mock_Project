@@ -28,6 +28,7 @@ public class EmloyeeServiceImpl implements EmployeeService {
 		BeanUtils.copyProperties(employee, employeeEntity);
 		
 		employeeRepository.save(employeeEntity);
+		
 //		employees.add(employee);
 		return "Saved Successfully...";
 	}
@@ -40,9 +41,10 @@ public class EmloyeeServiceImpl implements EmployeeService {
 		for (EmployeeEntity employeeEntity : employeesList) {
 			Employee emp = new Employee();
 			
+			emp.setId(employeeEntity.getId());
 			emp.setName(employeeEntity.getName());
 			emp.setEmail(employeeEntity.getEmail());
-			
+			emp.setPhone(employeeEntity.getPhone());
 			employees.add(emp);
 		}
 		return employees;

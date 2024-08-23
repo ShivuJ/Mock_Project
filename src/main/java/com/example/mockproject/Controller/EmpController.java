@@ -19,8 +19,8 @@ import com.example.mockproject.serviceImpl.EmloyeeServiceImpl;
 @RequestMapping("/employeesInfo")
 public class EmpController {
 //	List<Employee> employees = new ArrayList<>();
-
-	EmployeeService employeeService = new EmloyeeServiceImpl();
+	@Autowired
+	EmployeeService employeeService;
 	
 	@GetMapping("employees")
 	public List<Employee> getAllEmployees() {
@@ -31,6 +31,9 @@ public class EmpController {
 	@PostMapping("employees")
 	public String createEmployee(@RequestBody Employee employee) {
 		
+		if (employee == null) {
+			System.out.println("Employee Data is missing...");
+		}
 		//employees.add(employee);
 		return employeeService.createEmployee(employee);
 		
