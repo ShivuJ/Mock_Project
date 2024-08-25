@@ -13,10 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.mockproject.Services.EmployeeService;
 import com.example.mockproject.model.Employee;
-import com.example.mockproject.serviceImpl.EmloyeeServiceImpl;
 
 @RestController
-@RequestMapping("/employeesInfo")
 public class EmpController {
 //	List<Employee> employees = new ArrayList<>();
 	@Autowired
@@ -27,6 +25,7 @@ public class EmpController {
 		
 		return employeeService.readEmployees();
 	}
+	
 	
 	@PostMapping("employees")
 	public String createEmployee(@RequestBody Employee employee) {
@@ -47,4 +46,6 @@ public class EmpController {
 		
 		return "Not Found";
 	}
+	
+	
 }
