@@ -5,7 +5,6 @@ import java.util.List;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
 
 import com.example.mockproject.Repository.EmployeeRepository;
@@ -67,6 +66,16 @@ public class EmloyeeServiceImpl implements EmployeeService {
 		existingEmployee.setPhone(employee.getPhone());
 		employeeRepository.save(existingEmployee);
 		return "Update Successfully";
+	}
+
+	@Override
+	public Employee readEmployee(Long id) {
+		EmployeeEntity employeeEntity = employeeRepository.findById(id).get();
+		
+		Employee employee = new Employee();
+		BeanUtils.copyProperties(employeeEntity, employee);
+		
+		return null;
 	}
 
 }
